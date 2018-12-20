@@ -914,6 +914,18 @@ func TestAProtoCompactText(t *testing.T) {
 	}
 }
 
+func TestAProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedA(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
+	}
+}
+
 func TestBProtoText(t *testing.T) {
 	seed := time.Now().UnixNano()
 	popr := math_rand.New(math_rand.NewSource(seed))
@@ -945,6 +957,18 @@ func TestBProtoCompactText(t *testing.T) {
 	}
 	if !p.Equal(msg) {
 		t.Fatalf("seed = %d, %#v !Proto %#v", seed, msg, p)
+	}
+}
+
+func TestBProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedB(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
 	}
 }
 
@@ -982,6 +1006,18 @@ func TestCProtoCompactText(t *testing.T) {
 	}
 }
 
+func TestCProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedC(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
+	}
+}
+
 func TestUProtoText(t *testing.T) {
 	seed := time.Now().UnixNano()
 	popr := math_rand.New(math_rand.NewSource(seed))
@@ -1013,6 +1049,18 @@ func TestUProtoCompactText(t *testing.T) {
 	}
 	if !p.Equal(msg) {
 		t.Fatalf("seed = %d, %#v !Proto %#v", seed, msg, p)
+	}
+}
+
+func TestUProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedU(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
 	}
 }
 
@@ -1050,6 +1098,18 @@ func TestEProtoCompactText(t *testing.T) {
 	}
 }
 
+func TestEProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedE(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
+	}
+}
+
 func TestRProtoText(t *testing.T) {
 	seed := time.Now().UnixNano()
 	popr := math_rand.New(math_rand.NewSource(seed))
@@ -1084,6 +1144,18 @@ func TestRProtoCompactText(t *testing.T) {
 	}
 }
 
+func TestRProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedR(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
+	}
+}
+
 func TestCastTypeProtoText(t *testing.T) {
 	seed := time.Now().UnixNano()
 	popr := math_rand.New(math_rand.NewSource(seed))
@@ -1115,6 +1187,18 @@ func TestCastTypeProtoCompactText(t *testing.T) {
 	}
 	if !p.Equal(msg) {
 		t.Fatalf("seed = %d, %#v !Proto %#v", seed, msg, p)
+	}
+}
+
+func TestCastTypeProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedCastType(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
 	}
 }
 

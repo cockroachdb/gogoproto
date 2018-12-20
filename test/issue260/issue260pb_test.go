@@ -422,6 +422,18 @@ func TestDroppedProtoCompactText(t *testing.T) {
 	}
 }
 
+func TestDroppedProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedDropped(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
+	}
+}
+
 func TestDroppedWithoutGettersProtoText(t *testing.T) {
 	seed := time.Now().UnixNano()
 	popr := math_rand.New(math_rand.NewSource(seed))
@@ -456,6 +468,18 @@ func TestDroppedWithoutGettersProtoCompactText(t *testing.T) {
 	}
 }
 
+func TestDroppedWithoutGettersProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedDroppedWithoutGetters(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
+	}
+}
+
 func TestKeptProtoText(t *testing.T) {
 	seed := time.Now().UnixNano()
 	popr := math_rand.New(math_rand.NewSource(seed))
@@ -487,6 +511,18 @@ func TestKeptProtoCompactText(t *testing.T) {
 	}
 	if !p.Equal(msg) {
 		t.Fatalf("seed = %d, %#v !Proto %#v", seed, msg, p)
+	}
+}
+
+func TestKeptProtoClone(t *testing.T) {
+	// TODO: enable these tests when clone is supported with all extensions.
+	t.Skip("Clone not supported for all extensions")
+	seed := time.Now().UnixNano()
+	popr := math_rand.New(math_rand.NewSource(seed))
+	orig := NewPopulatedKept(popr, true)
+	clone := github_com_gogo_protobuf_proto.Clone(orig)
+	if !orig.Equal(clone) {
+		t.Fatalf("seed = %d, original %v does not equal clone %v", seed, orig, clone)
 	}
 }
 
