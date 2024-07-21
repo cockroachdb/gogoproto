@@ -39,6 +39,10 @@ func IsNullable(field *google_protobuf.FieldDescriptorProto) bool {
 	return proto.GetBoolExtension(field.Options, E_Nullable, true)
 }
 
+func IsOmitEmpty(field *google_protobuf.FieldDescriptorProto) bool {
+	return proto.GetBoolExtension(field.Options, E_Omitempty, false)
+}
+
 func IsStdTime(field *google_protobuf.FieldDescriptorProto) bool {
 	return proto.GetBoolExtension(field.Options, E_Stdtime, false)
 }

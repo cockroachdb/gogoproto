@@ -141,4 +141,11 @@ extend google.protobuf.FieldOptions {
 	optional bool stdduration = 65011;
 	optional bool wktpointer = 65012;
 
+
+	// omitempty is used to skip marshaling non-nullable fields which are empty
+	// (unset). The field's type must implement an `.Empty()` method which will be
+	// consulted prior to marshaling.
+	//
+	// Added by cockroach.
+	optional bool omitempty = 65013;
 }
