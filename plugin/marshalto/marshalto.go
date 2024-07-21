@@ -338,6 +338,7 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 
 	protoSizer := gogoproto.IsProtoSizer(file.FileDescriptorProto, message.DescriptorProto)
 	doNilCheck := gogoproto.NeedsNilCheck(proto3, field)
+	omitEmpty := gogoproto.IsOmitEmpty(field)
 	if required && nullable {
 		p.P(`if m.`, fieldname, `== nil {`)
 		p.In()
@@ -353,6 +354,9 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 		p.In()
 	} else if doNilCheck {
 		p.P(`if m.`, fieldname, ` != nil {`)
+		p.In()
+	} else if omitEmpty {
+		p.P(`if !m.`, fieldname, `.IsEmpty() {`)
 		p.In()
 	}
 	packed := field.IsPacked() || (proto3 && field.IsPacked3())
@@ -689,6 +693,7 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 			nullableMsg := nullable && (m.ValueField.GetType() == descriptor.FieldDescriptorProto_TYPE_MESSAGE ||
 				gogoproto.IsCustomType(field) && m.ValueField.IsBytes())
 			plainBytes := m.ValueField.IsBytes() && !gogoproto.IsCustomType(field)
+			omitEmpty := gogoproto.IsOmitEmpty(field)
 			if nullableMsg {
 				p.P(`if `, accessor, ` != nil { `)
 				p.In()
@@ -699,10 +704,13 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 					p.P(`if `, accessor, ` != nil {`)
 				}
 				p.In()
+			} else if omitEmpty {
+				p.P(`if !`, accessor, `.IsEmpty() {`)
+				p.In()
 			}
 			p.mapField(numGen, field, m.ValueAliasField, accessor, protoSizer)
 			p.encodeKey(2, wireToType(valuewire))
-			if nullableMsg || plainBytes {
+			if nullableMsg || plainBytes || omitEmpty {
 				p.Out()
 				p.P(`}`)
 			}
@@ -877,7 +885,7 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 	default:
 		panic("not implemented")
 	}
-	if (required && nullable) || repeated || doNilCheck {
+	if (required && nullable) || repeated || doNilCheck || omitEmpty {
 		p.Out()
 		p.P(`}`)
 	}
