@@ -89,6 +89,7 @@ type DeprecatedResponse struct {
 	// DeprecatedOneof contains a deprecated field.
 	//
 	// Types that are valid to be assigned to DeprecatedOneof:
+	//
 	//	*DeprecatedResponse_DeprecatedOneofField
 	DeprecatedOneof      isDeprecatedResponse_DeprecatedOneof `protobuf_oneof:"deprecated_oneof"`
 	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`

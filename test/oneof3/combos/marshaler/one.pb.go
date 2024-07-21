@@ -71,6 +71,7 @@ var xxx_messageInfo_Subby proto.InternalMessageInfo
 
 type SampleOneOf struct {
 	// Types that are valid to be assigned to TestOneof:
+	//
 	//	*SampleOneOf_Field1
 	//	*SampleOneOf_Field2
 	//	*SampleOneOf_Field3

@@ -5,9 +5,11 @@
 Package typedeclimport is a generated protocol buffer package.
 
 It is generated from these files:
+
 	typedeclimport.proto
 
 It has these top-level messages:
+
 	SomeMessage
 */
 package typedeclimport

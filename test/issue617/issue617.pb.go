@@ -25,6 +25,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Foo struct {
 	// Types that are valid to be assigned to Details:
+	//
 	//	*Foo_Bar_
 	Details              isFoo_Details `protobuf_oneof:"details"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`

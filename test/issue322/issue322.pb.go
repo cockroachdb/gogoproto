@@ -28,6 +28,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type OneofTest struct {
 	// Types that are valid to be assigned to Union:
+	//
 	//	*OneofTest_I
 	Union                isOneofTest_Union `protobuf_oneof:"union"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`

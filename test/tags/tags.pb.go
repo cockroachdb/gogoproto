@@ -25,6 +25,7 @@ type Outside struct {
 	*Inside `protobuf:"bytes,1,opt,name=Inside,embedded=Inside" json:""`
 	Field2  *string `protobuf:"bytes,2,opt,name=Field2" json:"MyField2" xml:",comment"`
 	// Types that are valid to be assigned to Filed:
+	//
 	//	*Outside_Field3
 	Filed                isOutside_Filed `protobuf_oneof:"filed"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`

@@ -47,6 +47,9 @@ func Get() string {
 
 func parseVersion(version string) (int, error) {
 	versions := strings.Split(version, ".")
+	if len(versions) == 2 {
+		versions = append(versions, "0")
+	}
 	if len(versions) != 3 {
 		return 0, fmt.Errorf("version does not have 3 numbers separated by dots: %s", version)
 	}

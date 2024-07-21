@@ -55,6 +55,7 @@ var xxx_messageInfo_Foo proto.InternalMessageInfo
 
 type Bar struct {
 	// Types that are valid to be assigned to Pick:
+	//
 	//	*Bar_A
 	//	*Bar_B
 	Pick                 isBar_Pick `protobuf_oneof:"pick"`

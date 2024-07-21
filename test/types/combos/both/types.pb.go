@@ -1456,6 +1456,7 @@ func (m *MapStdTypes) GetNonnullBytes() map[int32][]byte {
 
 type OneofProtoTypes struct {
 	// Types that are valid to be assigned to OneOfProtoTimes:
+	//
 	//	*OneofProtoTypes_Timestamp
 	//	*OneofProtoTypes_Duration
 	//	*OneofProtoTypes_RepDouble
@@ -1663,6 +1664,7 @@ func (*OneofProtoTypes) XXX_OneofWrappers() []interface{} {
 
 type OneofStdTypes struct {
 	// Types that are valid to be assigned to OneOfStdTimes:
+	//
 	//	*OneofStdTypes_Timestamp
 	//	*OneofStdTypes_Duration
 	//	*OneofStdTypes_RepDouble

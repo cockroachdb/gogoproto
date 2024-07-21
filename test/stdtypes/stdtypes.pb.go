@@ -650,6 +650,7 @@ func (m *MapStdTypes) GetNonnullBytes() map[int32][]byte {
 
 type OneofStdTypes struct {
 	// Types that are valid to be assigned to OneOfStdTimes:
+	//
 	//	*OneofStdTypes_Timestamp
 	//	*OneofStdTypes_Duration
 	//	*OneofStdTypes_RepDouble

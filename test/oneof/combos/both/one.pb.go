@@ -74,6 +74,7 @@ var xxx_messageInfo_Subby proto.InternalMessageInfo
 
 type AllTypesOneOf struct {
 	// Types that are valid to be assigned to TestOneof:
+	//
 	//	*AllTypesOneOf_Field1
 	//	*AllTypesOneOf_Field2
 	//	*AllTypesOneOf_Field3
@@ -346,11 +347,13 @@ func (*AllTypesOneOf) XXX_OneofWrappers() []interface{} {
 
 type TwoOneofs struct {
 	// Types that are valid to be assigned to One:
+	//
 	//	*TwoOneofs_Field1
 	//	*TwoOneofs_Field2
 	//	*TwoOneofs_Field3
 	One isTwoOneofs_One `protobuf_oneof:"one"`
 	// Types that are valid to be assigned to Two:
+	//
 	//	*TwoOneofs_Field34
 	//	*TwoOneofs_Field35
 	//	*TwoOneofs_SubMessage2
@@ -504,6 +507,7 @@ func (*TwoOneofs) XXX_OneofWrappers() []interface{} {
 
 type CustomOneof struct {
 	// Types that are valid to be assigned to Custom:
+	//
 	//	*CustomOneof_Stringy
 	//	*CustomOneof_CustomType
 	//	*CustomOneof_CastType
