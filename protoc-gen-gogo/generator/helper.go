@@ -284,6 +284,11 @@ func (g *Generator) GetMapValueField(field, valField *descriptor.FieldDescriptor
 	if err := proto.SetExtension(valField.Options, gogoproto.E_Nullable, &nullable); err != nil {
 		g.Fail(err.Error())
 	}
+
+	omitEmpty := gogoproto.IsOmitEmpty(field)
+	if err := proto.SetExtension(valField.Options, gogoproto.E_Omitempty, &omitEmpty); err != nil {
+		g.Fail(err.Error())
+	}
 	return valField
 }
 
