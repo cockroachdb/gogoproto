@@ -30,7 +30,7 @@ syntax = "proto2";
 
 package issue620;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/cockroachdb/gogoproto/gogoproto/gogo.proto";
 
 message Bar {
   optional string Field1 = 1;

@@ -32,7 +32,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/gogo/protobuf/proto"
+	"github.com/cockroachdb/gogoproto/proto"
 )
 
 func TestNilMaps(t *testing.T) {

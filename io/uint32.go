@@ -32,7 +32,7 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/gogo/protobuf/proto"
+	"github.com/cockroachdb/gogoproto/proto"
 )
 
 const uint32BinaryLen = 4

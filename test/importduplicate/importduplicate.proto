@@ -29,9 +29,9 @@
 syntax = "proto3";
 package importduplicate;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
-import "github.com/gogo/protobuf/test/importduplicate/sortkeys/sortable.proto";
-import "github.com/gogo/protobuf/test/importduplicate/proto/proto.proto";
+import "github.com/cockroachdb/gogoproto/gogoproto/gogo.proto";
+import "github.com/cockroachdb/gogoproto/test/importduplicate/sortkeys/sortable.proto";
+import "github.com/cockroachdb/gogoproto/test/importduplicate/proto/proto.proto";
 
 option (gogoproto.testgen_all) = true;
 option (gogoproto.populate_all) = true;

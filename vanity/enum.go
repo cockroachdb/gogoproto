@@ -29,9 +29,9 @@
 package vanity
 
 import (
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/proto"
-	descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
+	"github.com/cockroachdb/gogoproto/gogoproto"
+	"github.com/cockroachdb/gogoproto/proto"
+	descriptor "github.com/cockroachdb/gogoproto/protoc-gen-gogo/descriptor"
 )
 
 func EnumHasBoolExtension(enum *descriptor.EnumDescriptorProto, extension *proto.ExtensionDesc) bool {

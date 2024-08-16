@@ -27,5 +27,5 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 regenerate:
-	go install github.com/gogo/protobuf/protoc-gen-gogofast
+	go install github.com/cockroachdb/gogoproto/protoc-gen-gogofast
 	protoc  --proto_path=../../../../../:../../protobuf/:. --gogofast_out=. fuzz.proto

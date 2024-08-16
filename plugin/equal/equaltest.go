@@ -29,9 +29,9 @@
 package equal
 
 import (
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/plugin/testgen"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/cockroachdb/gogoproto/gogoproto"
+	"github.com/cockroachdb/gogoproto/plugin/testgen"
+	"github.com/cockroachdb/gogoproto/protoc-gen-gogo/generator"
 )
 
 type test struct {
@@ -47,7 +47,7 @@ func (p *test) Generate(imports generator.PluginImports, file *generator.FileDes
 	randPkg := imports.NewImport("math/rand")
 	timePkg := imports.NewImport("time")
 	testingPkg := imports.NewImport("testing")
-	protoPkg := imports.NewImport("github.com/gogo/protobuf/proto")
+	protoPkg := imports.NewImport("github.com/cockroachdb/gogoproto/proto")
 	unsafePkg := imports.NewImport("unsafe")
 	if !gogoproto.ImportsGoGoProto(file.FileDescriptorProto) {
 		protoPkg = imports.NewImport("github.com/golang/protobuf/proto")

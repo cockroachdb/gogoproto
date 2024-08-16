@@ -31,7 +31,7 @@ package registration
 import (
 	"testing"
 
-	gogoproto "github.com/gogo/protobuf/proto"
+	gogoproto "github.com/cockroachdb/gogoproto/proto"
 	golangproto "github.com/golang/protobuf/proto"
 )
 

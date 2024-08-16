@@ -32,7 +32,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/gogo/protobuf/proto"
+	"github.com/cockroachdb/gogoproto/proto"
 )
 
 func TestEncodeShort(t *testing.T) {

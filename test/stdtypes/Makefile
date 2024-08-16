@@ -27,12 +27,12 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 regenerate:
-	go install github.com/gogo/protobuf/protoc-min-version
-	go install github.com/gogo/protobuf/protoc-gen-gogo
+	go install github.com/cockroachdb/gogoproto/protoc-min-version
+	go install github.com/cockroachdb/gogoproto/protoc-gen-gogo
 	protoc-min-version --version="3.0.0" --gogo_out=\
-	Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,\
-	Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types\
+	Mgoogle/protobuf/duration.proto=github.com/cockroachdb/gogoproto/types,\
+	Mgoogle/protobuf/timestamp.proto=github.com/cockroachdb/gogoproto/types,\
+	Mgoogle/protobuf/wrappers.proto=github.com/cockroachdb/gogoproto/types\
 	:. \
 	--proto_path=../../../../../:../../protobuf/:. stdtypes.proto
 

@@ -5,8 +5,8 @@ package plugin_go
 
 import (
 	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
-	descriptor "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
+	proto "github.com/cockroachdb/gogoproto/proto"
+	descriptor "github.com/cockroachdb/gogoproto/protoc-gen-gogo/descriptor"
 	math "math"
 )
 

@@ -48,11 +48,11 @@ The gostring plugin also generates a test given it is enabled using one of the f
 
 Let us look at:
 
-	github.com/gogo/protobuf/test/example/example.proto
+	github.com/cockroachdb/gogoproto/test/example/example.proto
 
 Btw all the output can be seen at:
 
-	github.com/gogo/protobuf/test/example/*
+	github.com/cockroachdb/gogoproto/test/example/*
 
 The following message:
 
@@ -61,7 +61,7 @@ The following message:
 	  message A {
 		optional string Description = 1 [(gogoproto.nullable) = false];
 		optional int64 Number = 2 [(gogoproto.nullable) = false];
-		optional bytes Id = 3 [(gogoproto.customtype) = "github.com/gogo/protobuf/test/custom.Uuid", (gogoproto.nullable) = false];
+		optional bytes Id = 3 [(gogoproto.customtype) = "github.com/cockroachdb/gogoproto/test/custom.Uuid", (gogoproto.nullable) = false];
 	  }
 
 given to the gostring plugin, will generate the following code:
@@ -101,8 +101,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/cockroachdb/gogoproto/gogoproto"
+	"github.com/cockroachdb/gogoproto/protoc-gen-gogo/generator"
 )
 
 type gostring struct {
@@ -138,14 +138,14 @@ func (p *gostring) Generate(file *generator.FileDescriptor) {
 
 	fmtPkg := p.NewImport("fmt")
 	stringsPkg := p.NewImport("strings")
-	protoPkg := p.NewImport("github.com/gogo/protobuf/proto")
+	protoPkg := p.NewImport("github.com/cockroachdb/gogoproto/proto")
 	if !gogoproto.ImportsGoGoProto(file.FileDescriptorProto) {
 		protoPkg = p.NewImport("github.com/golang/protobuf/proto")
 	}
 	sortPkg := p.NewImport("sort")
 	strconvPkg := p.NewImport("strconv")
 	reflectPkg := p.NewImport("reflect")
-	sortKeysPkg := p.NewImport("github.com/gogo/protobuf/sortkeys")
+	sortKeysPkg := p.NewImport("github.com/cockroachdb/gogoproto/sortkeys")
 
 	extensionToGoStringUsed := false
 	for _, message := range file.Messages() {

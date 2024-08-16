@@ -30,7 +30,7 @@ syntax = "proto2";
 
 package embedconflict;
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/cockroachdb/gogoproto/gogoproto/gogo.proto";
 
 message TakesLongTooDebug {
   optional bytes Field1 = 1;

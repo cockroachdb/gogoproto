@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	tpb "github.com/gogo/protobuf/proto/test_proto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
+	tpb "github.com/cockroachdb/gogoproto/proto/test_proto"
+	"github.com/cockroachdb/gogoproto/protoc-gen-gogo/descriptor"
 )
 
 func TestMessage(t *testing.T) {

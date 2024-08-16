@@ -14,11 +14,11 @@ It has these top-level messages:
 */
 package typedeclimport
 
-import proto "github.com/gogo/protobuf/proto"
+import proto "github.com/cockroachdb/gogoproto/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/gogo/protobuf/gogoproto"
-import subpkg "github.com/gogo/protobuf/test/typedeclimport/subpkg"
+import _ "github.com/cockroachdb/gogoproto/gogoproto"
+import subpkg "github.com/cockroachdb/gogoproto/test/typedeclimport/subpkg"
 
 import io "io"
 

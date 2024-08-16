@@ -27,7 +27,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 regenerate:
-	go install github.com/gogo/protobuf/protoc-min-version
+	go install github.com/cockroachdb/gogoproto/protoc-min-version
 	protoc-min-version --version="3.0.0" --proto_path=\
-	.:$(GOPATH)/src/:$(GOPATH)/src/github.com/gogo/protobuf/protobuf/ \
+	.:$(GOPATH)/src/:$(GOPATH)/src/github.com/cockroachdb/gogoproto/protobuf/ \
 	--gogo_out=. issue444.proto

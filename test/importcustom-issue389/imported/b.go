@@ -3,7 +3,7 @@ package imported
 import (
 	"encoding/json"
 
-	"github.com/gogo/protobuf/proto"
+	"github.com/cockroachdb/gogoproto/proto"
 )
 
 type B struct {

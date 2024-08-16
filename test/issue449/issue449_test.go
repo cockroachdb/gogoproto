@@ -31,7 +31,7 @@ package issue449
 import (
 	"testing"
 
-	"github.com/gogo/protobuf/proto"
+	"github.com/cockroachdb/gogoproto/proto"
 )
 
 func TestCodeGenMsgMarshalUnmarshal(t *testing.T) {

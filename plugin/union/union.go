@@ -54,11 +54,11 @@ The onlyone plugin also generates a test given it is enabled using one of the fo
 
 Lets look at:
 
-	github.com/gogo/protobuf/test/example/example.proto
+	github.com/cockroachdb/gogoproto/test/example/example.proto
 
 Btw all the output can be seen at:
 
-	github.com/gogo/protobuf/test/example/*
+	github.com/cockroachdb/gogoproto/test/example/*
 
 The following message:
 
@@ -110,8 +110,8 @@ and the following test code:
 package union
 
 import (
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/cockroachdb/gogoproto/gogoproto"
+	"github.com/cockroachdb/gogoproto/protoc-gen-gogo/generator"
 )
 
 type union struct {

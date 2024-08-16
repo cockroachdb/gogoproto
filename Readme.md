@@ -6,8 +6,8 @@
  <img src="https://img.youtube.com/vi/HTIltI0NuNg/maxres1.jpg" alt="Watch the video" width="480" border="10" />
 </a>
 
-[![Build Status](https://github.com/gogo/protobuf/workflows/Continuous%20Integration/badge.svg)](https://github.com/gogo/protobuf/actions)
-[![GoDoc](https://godoc.org/github.com/gogo/protobuf?status.svg)](http://godoc.org/github.com/gogo/protobuf)
+[![Build Status](https://github.com/cockroachdb/gogoproto/workflows/Continuous%20Integration/badge.svg)](https://github.com/cockroachdb/gogoproto/actions)
+[![GoDoc](https://godoc.org/github.com/cockroachdb/gogoproto?status.svg)](http://godoc.org/github.com/cockroachdb/gogoproto)
 
 gogoprotobuf is a fork of <a href="https://github.com/golang/protobuf">golang/protobuf</a> with extra code generation features.
 
@@ -21,11 +21,11 @@ This code generation is used to achieve:
   - other serialization formats
 
 Keeping track of how up to date gogoprotobuf is relative to golang/protobuf is done in this
-<a href="https://github.com/gogo/protobuf/issues/191">issue</a>
+<a href="https://github.com/cockroachdb/gogoproto/issues/191">issue</a>
 
 ## Release v1.3.0
 
-The project has updated to release v1.3.0. Check out the release notes <a href="https://github.com/gogo/protobuf/releases/tag/v1.3.0">here</a>.
+The project has updated to release v1.3.0. Check out the release notes <a href="https://github.com/cockroachdb/gogoproto/releases/tag/v1.3.0">here</a>.
 
 With this new release comes a new internal library version. This means any newly generated *pb.go files generated with the v1.3.0 library will not be compatible with the old library version (v1.2.1). However, current *pb.go files (generated with v1.2.1) should still work with the new library.
 
@@ -111,13 +111,13 @@ Most versions from 2.3.1 should not give any problems, but 2.6.1, 3.0.2 and 3.14
 
 Install the protoc-gen-gofast binary
 
-    go get github.com/gogo/protobuf/protoc-gen-gofast
+    go get github.com/cockroachdb/gogoproto/protoc-gen-gofast
 
 Use it to generate faster marshaling and unmarshaling go code for your protocol buffers.
 
     protoc --gofast_out=. myproto.proto
 
-This does not allow you to use any of the other gogoprotobuf [extensions](https://github.com/gogo/protobuf/blob/master/extensions.md).
+This does not allow you to use any of the other gogoprotobuf [extensions](https://github.com/cockroachdb/gogoproto/blob/master/extensions.md).
 
 ### More Speed and more generated code
 
@@ -132,24 +132,24 @@ Other binaries are also included:
 
 Installing any of these binaries is easy.  Simply run:
 
-    go get github.com/gogo/protobuf/proto
-    go get github.com/gogo/protobuf/{binary}
-    go get github.com/gogo/protobuf/gogoproto
+    go get github.com/cockroachdb/gogoproto/proto
+    go get github.com/cockroachdb/gogoproto/{binary}
+    go get github.com/cockroachdb/gogoproto/gogoproto
 
-These binaries allow you to use gogoprotobuf [extensions](https://github.com/gogo/protobuf/blob/master/extensions.md). You can also use your own binary.
+These binaries allow you to use gogoprotobuf [extensions](https://github.com/cockroachdb/gogoproto/blob/master/extensions.md). You can also use your own binary.
 
 To generate the code, you also need to set the include path properly.
 
-    protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf --{binary}_out=. myproto.proto
+    protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/cockroachdb/gogoproto/protobuf --{binary}_out=. myproto.proto
 
 To use proto files from "google/protobuf" you need to add additional args to protoc.
 
-    protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf --{binary}_out=\
-    Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types,\
-    Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types,\
-    Mgoogle/protobuf/struct.proto=github.com/gogo/protobuf/types,\
-    Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,\
-    Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types:. \
+    protoc -I=. -I=$GOPATH/src -I=$GOPATH/src/github.com/cockroachdb/gogoproto/protobuf --{binary}_out=\
+    Mgoogle/protobuf/any.proto=github.com/cockroachdb/gogoproto/types,\
+    Mgoogle/protobuf/duration.proto=github.com/cockroachdb/gogoproto/types,\
+    Mgoogle/protobuf/struct.proto=github.com/cockroachdb/gogoproto/types,\
+    Mgoogle/protobuf/timestamp.proto=github.com/cockroachdb/gogoproto/types,\
+    Mgoogle/protobuf/wrappers.proto=github.com/cockroachdb/gogoproto/types:. \
     myproto.proto
 
 Note that in the protoc command, {binary} does not contain the initial prefix of "protoc-gen".
@@ -159,14 +159,14 @@ Note that in the protoc command, {binary} does not contain the initial prefix of
 Customizing the fields of the messages to be the fields that you actually want to use removes the need to copy between the structs you use and structs you use to serialize.
 gogoprotobuf also offers more serialization formats and generation of tests and even more methods.
 
-Please visit the [extensions](https://github.com/gogo/protobuf/blob/master/extensions.md) page for more documentation.
+Please visit the [extensions](https://github.com/cockroachdb/gogoproto/blob/master/extensions.md) page for more documentation.
 
 Install protoc-gen-gogo:
 
-    go get github.com/gogo/protobuf/proto
-    go get github.com/gogo/protobuf/jsonpb
-    go get github.com/gogo/protobuf/protoc-gen-gogo
-    go get github.com/gogo/protobuf/gogoproto
+    go get github.com/cockroachdb/gogoproto/proto
+    go get github.com/cockroachdb/gogoproto/jsonpb
+    go get github.com/cockroachdb/gogoproto/protoc-gen-gogo
+    go get github.com/cockroachdb/gogoproto/gogoproto
 
 ## GRPC
 

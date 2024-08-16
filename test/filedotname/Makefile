@@ -27,5 +27,5 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 regenerate:
-	go install github.com/gogo/protobuf/protoc-gen-gogo
+	go install github.com/cockroachdb/gogoproto/protoc-gen-gogo
 	protoc --gogo_out=. --proto_path=../../protobuf/:../../../../../:. file.dot.proto

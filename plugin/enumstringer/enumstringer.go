@@ -39,8 +39,8 @@ This package is subject to change.
 package enumstringer
 
 import (
-	"github.com/gogo/protobuf/gogoproto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/cockroachdb/gogoproto/gogoproto"
+	"github.com/cockroachdb/gogoproto/protoc-gen-gogo/generator"
 )
 
 type enumstringer struct {

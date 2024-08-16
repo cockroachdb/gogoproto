@@ -30,7 +30,7 @@ package issue503
 
 import (
 	"fmt"
-	"github.com/gogo/protobuf/proto"
+	"github.com/cockroachdb/gogoproto/proto"
 	"math/rand"
 	"testing"
 )

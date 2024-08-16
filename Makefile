@@ -30,8 +30,8 @@ GO_VERSION:=$(shell go version)
 BENCHLIST?=all
 
 # Skip known issues from purego tests
-# https://github.com/gogo/protobuf/issues/447
-# https://github.com/gogo/protobuf/issues/448
+# https://github.com/cockroachdb/gogoproto/issues/447
+# https://github.com/cockroachdb/gogoproto/issues/448
 SKIPISSUE:="/jsonpb|/test/casttype/|/test/oneof/combos/"
 
 .PHONY: nuke regenerate tests clean install gofmt vet contributors
@@ -160,7 +160,7 @@ errcheck:
 
 drone:
 	sudo apt-get install protobuf-compiler
-	(cd $(GOPATH)/src/github.com/gogo/protobuf && make buildserverall)
+	(cd $(GOPATH)/src/github.com/cockroachdb/gogoproto && make buildserverall)
 
 testall:
 	go get -u github.com/golang/protobuf/proto
@@ -182,7 +182,7 @@ contributors:
 js:
 ifeq (go1.12, $(findstring go1.12, $(GO_VERSION)))
 	go get -u github.com/gopherjs/gopherjs
-	gopherjs build github.com/gogo/protobuf/protoc-gen-gogo
+	gopherjs build github.com/cockroachdb/gogoproto/protoc-gen-gogo
 endif
 
 purego:

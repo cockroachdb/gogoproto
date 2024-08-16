@@ -29,8 +29,8 @@
 package required
 
 import (
-	"github.com/gogo/protobuf/proto"
-	"github.com/gogo/protobuf/test"
+	"github.com/cockroachdb/gogoproto/proto"
+	"github.com/cockroachdb/gogoproto/test"
 	"math/rand"
 	"reflect"
 	"strconv"

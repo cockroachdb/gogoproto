@@ -36,8 +36,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/gogo/protobuf/proto"
-	. "github.com/gogo/protobuf/proto/test_proto"
+	"github.com/cockroachdb/gogoproto/proto"
+	. "github.com/cockroachdb/gogoproto/proto/test_proto"
 )
 
 func TestUnmarshalMessageSetWithDuplicate(t *testing.T) {

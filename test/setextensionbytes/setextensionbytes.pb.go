@@ -6,9 +6,9 @@ package setextensionbytes
 import (
 	bytes "bytes"
 	fmt "fmt"
-	_ "github.com/gogo/protobuf/gogoproto"
-	github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
-	proto "github.com/gogo/protobuf/proto"
+	_ "github.com/cockroachdb/gogoproto/gogoproto"
+	github_com_gogo_protobuf_proto "github.com/cockroachdb/gogoproto/proto"
+	proto "github.com/cockroachdb/gogoproto/proto"
 	io "io"
 	math "math"
 	math_bits "math/bits"

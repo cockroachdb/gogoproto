@@ -33,7 +33,7 @@ func NewPopulatedMyType(r randyAsym) *MyType {
 	return this
 }
 
-// TODO: rename this to Marshal once https://github.com/gogo/protobuf/issues/388 is fixed
+// TODO: rename this to Marshal once https://github.com/cockroachdb/gogoproto/issues/388 is fixed
 func (m MyType) DisabledMarshal() (data []byte, err error) {
 	size := m.Size()
 	data = make([]byte, size)

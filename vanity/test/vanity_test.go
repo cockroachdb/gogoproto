@@ -29,9 +29,9 @@
 package test
 
 import (
-	fast "github.com/gogo/protobuf/vanity/test/fast"
-	faster "github.com/gogo/protobuf/vanity/test/faster"
-	slick "github.com/gogo/protobuf/vanity/test/slick"
+	fast "github.com/cockroachdb/gogoproto/vanity/test/fast"
+	faster "github.com/cockroachdb/gogoproto/vanity/test/faster"
+	slick "github.com/cockroachdb/gogoproto/vanity/test/slick"
 	"testing"
 )
 

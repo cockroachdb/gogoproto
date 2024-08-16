@@ -39,7 +39,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gogo/protobuf/version"
+	"github.com/cockroachdb/gogoproto/version"
 )
 
 type MixMatch struct {
