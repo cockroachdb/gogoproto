@@ -740,8 +740,11 @@ func (m *OmitEmpty) Size() (n int) {
 	}
 	l = m.InnerNotNullable.Size()
 	n += 1 + l + sovOmitempty(uint64(l))
-	l = m.InnerOmitEmpty.Size()
-	n += 1 + l + sovOmitempty(uint64(l))
+	// Field has gogoproto.omitempty set.
+	if !m.InnerOmitEmpty.Empty() {
+		l = m.InnerOmitEmpty.Size()
+		n += 1 + l + sovOmitempty(uint64(l))
+	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
 	}
