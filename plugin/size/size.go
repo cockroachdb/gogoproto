@@ -234,11 +234,16 @@ func (p *size) generateField(proto3 bool, file *generator.FileDescriptor, messag
 	nullable := gogoproto.IsNullable(field)
 	repeated := field.IsRepeated()
 	doNilCheck := gogoproto.NeedsNilCheck(proto3, field)
+	omitEmpty := gogoproto.IsOmitEmpty(field)
 	if repeated {
 		p.P(`if len(m.`, fieldname, `) > 0 {`)
 		p.In()
 	} else if doNilCheck {
 		p.P(`if m.`, fieldname, ` != nil {`)
+		p.In()
+	} else if omitEmpty {
+		p.P(`// Field has gogoproto.omitempty set.`)
+		p.P(`if !m.`, fieldname, `.Empty() {`)
 		p.In()
 	}
 	packed := field.IsPacked() || (proto3 && field.IsPacked3())
@@ -570,7 +575,7 @@ func (p *size) generateField(proto3 bool, file *generator.FileDescriptor, messag
 	default:
 		panic("not implemented")
 	}
-	if repeated || doNilCheck {
+	if repeated || doNilCheck || omitEmpty {
 		p.Out()
 		p.P(`}`)
 	}
