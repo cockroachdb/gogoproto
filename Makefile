@@ -155,8 +155,7 @@ vet:
 	go vet -vettool=$(shell which shadow) ./...
 
 errcheck:
-	go get github.com/kisielk/errcheck
-	errcheck ./test/...
+	go run github.com/kisielk/errcheck@latest ./test/...
 
 drone:
 	sudo apt-get install protobuf-compiler
