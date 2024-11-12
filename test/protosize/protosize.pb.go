@@ -370,7 +370,7 @@ func (m *SizeMessage) ProtoSize() (n int) {
 }
 
 func sovProtosize(x uint64) (n int) {
-	return (math_bits.Len64(x|1) + 6) / 7
+	return int((uint32(math_bits.Len64(x|1)+6) * 37) >> 8)
 }
 func sozProtosize(x uint64) (n int) {
 	return sovProtosize(uint64((x << 1) ^ uint64((int64(x) >> 63))))

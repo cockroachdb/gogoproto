@@ -186,9 +186,10 @@ func keySize(fieldNumber int32, wireType int) int {
 }
 
 func (p *size) sizeVarint() {
+	// Note: (x*37)>>8 is equivalent to x/7 for x in the [0, 64] range.
 	p.P(`
 	func sov`, p.localName, `(x uint64) (n int) {
-                return (`, p.bitsPkg.Use(), `.Len64(x | 1) + 6)/ 7
+                return int((uint32(`, p.bitsPkg.Use(), `.Len64(x | 1) + 6) * 37) >> 8)
 	}`)
 }
 
