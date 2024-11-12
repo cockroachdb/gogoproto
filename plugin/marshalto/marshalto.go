@@ -694,7 +694,6 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 			nullableMsg := nullable && (m.ValueField.GetType() == descriptor.FieldDescriptorProto_TYPE_MESSAGE ||
 				gogoproto.IsCustomType(field) && m.ValueField.IsBytes())
 			plainBytes := m.ValueField.IsBytes() && !gogoproto.IsCustomType(field)
-			omitEmpty := gogoproto.IsOmitEmpty(field)
 			if nullableMsg {
 				p.P(`if `, accessor, ` != nil { `)
 				p.In()

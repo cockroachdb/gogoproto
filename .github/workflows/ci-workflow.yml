@@ -13,34 +13,40 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: [1.15.x, 1.12.x]
-        protobuf_version: [3.14.0, 3.0.2, 2.6.1]
+        go_version: [1.23.x, 1.22.x]
+        protobuf_version: [3.14.0, 3.0.2]
       fail-fast: false
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
         with:
-          path: gopath/src/github.com/gogo/protobuf
+          path: ./gopath/src/github.com/gogo/protobuf
           fetch-depth: 5
 
       - name: Setup go
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go_version }}
 
       - name: Setup protoc
+        working-directory: ./gopath/src/github.com/gogo/protobuf
         env:
           PROTOBUF_VERSION: ${{ matrix.protobuf_version }}
         run: ./install-protobuf.sh
 
       - name: Protoc version
+        working-directory: ./gopath/src/github.com/gogo/protobuf
         run: PATH=$HOME/bin:$PATH protoc --version
+
       - name: env
+        working-directory: ./gopath/src/github.com/gogo/protobuf
         run: env && go env && pwd
 
       - name: Build server all
-        run: GOPATH=/home/runner/work/protobuf/gopath GOBIN=$GOPATH/bin PATH=$HOME/bin:$GOBIN:$PATH make buildserverall
+        working-directory: ./gopath/src/github.com/gogo/protobuf
+        run: GOPATH=/home/runner/work/gogoproto/gogoproto/gopath GOBIN=$GOPATH/bin PATH=$HOME/bin:$GOBIN:$PATH make buildserverall
 
       - name: Diff check
-        if: matrix.protobuf_version == '3.14.0' && matrix.go_version == '1.15.x'
+        working-directory: ./gopath/src/github.com/gogo/protobuf
+        if: matrix.protobuf_version == '3.14.0' && matrix.go_version == '1.22.x'
         run: (! git status --porcelain | read || (git status; git diff; exit 1))
