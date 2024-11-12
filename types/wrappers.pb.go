@@ -1862,7 +1862,7 @@ func (m *BytesValue) Size() (n int) {
 }
 
 func sovWrappers(x uint64) (n int) {
-	return (math_bits.Len64(x|1) + 6) / 7
+	return int((uint32(math_bits.Len64(x|1)+6) * 37) >> 8)
 }
 func sozWrappers(x uint64) (n int) {
 	return sovWrappers(uint64((x << 1) ^ uint64((int64(x) >> 63))))

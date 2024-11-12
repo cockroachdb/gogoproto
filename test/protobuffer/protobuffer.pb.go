@@ -213,7 +213,7 @@ func (m *PBuffMarshaler) Size() (n int) {
 }
 
 func sovProtobuffer(x uint64) (n int) {
-	return (math_bits.Len64(x|1) + 6) / 7
+	return int((uint32(math_bits.Len64(x|1)+6) * 37) >> 8)
 }
 func sozProtobuffer(x uint64) (n int) {
 	return sovProtobuffer(uint64((x << 1) ^ uint64((int64(x) >> 63))))

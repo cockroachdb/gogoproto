@@ -355,7 +355,7 @@ func (m *CodeGenMsg) Size() (n int) {
 }
 
 func sovIssue449(x uint64) (n int) {
-	return (math_bits.Len64(x|1) + 6) / 7
+	return int((uint32(math_bits.Len64(x|1)+6) * 37) >> 8)
 }
 func sozIssue449(x uint64) (n int) {
 	return sovIssue449(uint64((x << 1) ^ uint64((int64(x) >> 63))))
