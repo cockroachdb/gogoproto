@@ -150,12 +150,12 @@ tests:
 	(cd test/stdtypes && make test)
 
 vet:
-	go get golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow
+	go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@v0.27.0
 	go vet ./...
 	go vet -vettool=$(shell which shadow) ./...
 
 errcheck:
-	go get github.com/kisielk/errcheck
+	go install github.com/kisielk/errcheck@v1.8.0
 	errcheck ./test/...
 
 drone:
@@ -172,7 +172,7 @@ testall:
 	make tests
 
 bench:
-	go get golang.org/x/tools/cmd/benchcmp
+	go install golang.org/x/tools/cmd/benchcmp@v0.27.0
 	(cd test/mixbench && go build .)
 	./test/mixbench/mixbench -benchlist "${BENCHLIST}"
 

@@ -23,7 +23,7 @@ func TestConcurrentTextMarshal(t *testing.T) {
 			defer wg.Done()
 			err := tm.Marshal(ioutil.Discard, &std)
 			if err != nil {
-				t.Fatal(err)
+				panic(err)
 			}
 		}()
 	}
