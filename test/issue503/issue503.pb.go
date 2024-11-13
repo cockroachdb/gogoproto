@@ -278,40 +278,58 @@ func (m *Foo) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		}
 	}
 	if len(m.Num2) > 0 {
-		dAtA2 := make([]byte, len(m.Num2)*10)
-		var j1 int
-		for _, num1 := range m.Num2 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA2[j1] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
+		l := 0
+		for _, e := range m.Num2 {
+			l += sovIssue503(uint64(e))
+		}
+		i -= l
+		if l == len(m.Num2) {
+			dest := dAtA[i : i+len(m.Num2)]
+			for k, num := range m.Num2 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j1 := i
+			for _, num1 := range m.Num2 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j1] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j1++
+				}
+				dAtA[j1] = uint8(num)
 				j1++
 			}
-			dAtA2[j1] = uint8(num)
-			j1++
 		}
-		i -= j1
-		copy(dAtA[i:], dAtA2[:j1])
-		i = encodeVarintIssue503(dAtA, i, uint64(j1))
+		i = encodeVarintIssue503(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x12
 	}
 	if len(m.Num1) > 0 {
-		dAtA4 := make([]byte, len(m.Num1)*10)
-		var j3 int
-		for _, num1 := range m.Num1 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA4[j3] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j3++
-			}
-			dAtA4[j3] = uint8(num)
-			j3++
+		l := 0
+		for _, e := range m.Num1 {
+			l += sovIssue503(uint64(e))
 		}
-		i -= j3
-		copy(dAtA[i:], dAtA4[:j3])
-		i = encodeVarintIssue503(dAtA, i, uint64(j3))
+		i -= l
+		if l == len(m.Num1) {
+			dest := dAtA[i : i+len(m.Num1)]
+			for k, num := range m.Num1 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j2 := i
+			for _, num1 := range m.Num1 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j2] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j2++
+				}
+				dAtA[j2] = uint8(num)
+				j2++
+			}
+		}
+		i = encodeVarintIssue503(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0xa
 	}
