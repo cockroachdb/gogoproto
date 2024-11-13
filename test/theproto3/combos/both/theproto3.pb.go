@@ -20,6 +20,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
+	slices "slices"
 	strconv "strconv"
 	strings "strings"
 )
@@ -6806,8 +6807,12 @@ func (m *Message) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Key) == 0 {
-					m.Key = make([]uint64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Key == nil {
+						m.Key = make([]uint64, 0, elementCount)
+					} else {
+						m.Key = slices.Grow(m.Key, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
@@ -11741,8 +11746,12 @@ func (m *NotPacked) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Key) == 0 {
-					m.Key = make([]uint64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Key == nil {
+						m.Key = make([]uint64, 0, elementCount)
+					} else {
+						m.Key = slices.Grow(m.Key, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64

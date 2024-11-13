@@ -1305,6 +1305,7 @@ func (p *unmarshal) Generate(file *generator.FileDescriptor) {
 	p.mathPkg = p.NewImport("math")
 	p.typesPkg = p.NewImport("github.com/gogo/protobuf/types")
 	p.binaryPkg = p.NewImport("encoding/binary")
+	slicesPkg := p.NewImport("slices")
 	fmtPkg := p.NewImport("fmt")
 	protoPkg := p.NewImport("github.com/gogo/protobuf/proto")
 	if !gogoproto.ImportsGoGoProto(file.FileDescriptorProto) {
@@ -1420,9 +1421,18 @@ func (p *unmarshal) Generate(file *generator.FileDescriptor) {
 				case descriptor.FieldDescriptorProto_TYPE_BOOL:
 					p.P(`elementCount = packedLen`)
 				}
-				p.P(`if elementCount != 0 && len(m.`, fieldname, `) == 0 {`)
+				p.P(`if elementCount != 0 {`)
+				p.In()
+				p.P(`if m.`, fieldname, ` == nil {`)
 				p.In()
 				p.P(`m.`, fieldname, ` = make([]`, p.noStarOrSliceType(message, field), `, 0, elementCount)`)
+				p.Out()
+				p.P(`} else {`)
+				// If the slice is not null, we use `slices.Grow` to reuse the existing slice if possible.
+				p.In()
+				p.P(`m.`, fieldname, ` = `, slicesPkg.Use(), `.Grow(m.`, fieldname, `, elementCount)`)
+				p.Out()
+				p.P(`}`)
 				p.Out()
 				p.P(`}`)
 

@@ -214,26 +214,70 @@ func TestTestPackedPreallocation(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	packedmsg := &NinRepPackedNative{}
-	err = proto.Unmarshal(dataPacked, packedmsg)
+	unmarshaled := &NinRepPackedNative{}
+	err = proto.Unmarshal(dataPacked, unmarshaled)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if v := len(packedmsg.Field3); v != n1 {
+	if v := len(unmarshaled.Field3); v != n1 {
 		t.Errorf("Field3 incorrect len: %v != %v", v, n1)
 	}
 
-	if v := len(packedmsg.Field4); v != n2 {
+	if v := len(unmarshaled.Field4); v != n2 {
 		t.Errorf("Field4 incorrect len: %v != %v", v, n2)
 	}
 
-	if v := cap(packedmsg.Field3); v != n1 {
+	if v := cap(unmarshaled.Field3); v != n1 {
 		t.Errorf("Field3 incorrect cap: %v != %v", v, n1)
 	}
 
-	if v := cap(packedmsg.Field4); v != n2 {
+	if v := cap(unmarshaled.Field4); v != n2 {
 		t.Errorf("Field4 incorrect cap: %v != %v", v, n2)
+	}
+}
+
+// Test that existing slices are reused when possible.
+func TestTestPackedSliceReuse(t *testing.T) {
+	n1 := 900
+	n2 := 700
+
+	msgPacked := &NinRepPackedNative{
+		Field3: make([]int32, n1),
+		Field4: make([]int64, n2),
+	}
+
+	dataPacked, err := proto.Marshal(msgPacked)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	slice3 := make([]int32, 0, n1+100)
+	slice4 := make([]int64, 10, n2)
+
+	unmarshaled := &NinRepPackedNative{
+		Field3: slice3,
+		Field4: slice4,
+	}
+	err = unmarshaled.Unmarshal(dataPacked)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if v := len(unmarshaled.Field3); v != n1 {
+		t.Errorf("Field3 incorrect len: %v != %v", v, n1)
+	}
+
+	if v := len(unmarshaled.Field4); v != n2+10 {
+		t.Errorf("Field4 incorrect len: %v != %v", v, n2+10)
+	}
+
+	if cap(slice3) != cap(unmarshaled.Field3) || &slice3[:1][0] != &unmarshaled.Field3[0] {
+		t.Errorf("Field3 should have been reused")
+	}
+
+	if &slice4[0] == &unmarshaled.Field4[0] {
+		t.Errorf("Field4 should have been reallocated")
 	}
 }
 

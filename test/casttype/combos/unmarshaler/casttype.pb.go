@@ -19,6 +19,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
+	slices "slices"
 	strings "strings"
 )
 
@@ -1705,8 +1706,12 @@ func (m *Castaway) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.MyUint64S) == 0 {
-					m.MyUint64S = make([]github_com_gogo_protobuf_test_casttype.MyUint64Type, 0, elementCount)
+				if elementCount != 0 {
+					if m.MyUint64S == nil {
+						m.MyUint64S = make([]github_com_gogo_protobuf_test_casttype.MyUint64Type, 0, elementCount)
+					} else {
+						m.MyUint64S = slices.Grow(m.MyUint64S, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v github_com_gogo_protobuf_test_casttype.MyUint64Type
