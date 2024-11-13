@@ -150,12 +150,12 @@ tests:
 	(cd test/stdtypes && make test)
 
 vet:
-	go get golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow
+	go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
 	go vet ./...
 	go vet -vettool=$(shell which shadow) ./...
 
 errcheck:
-	go get github.com/kisielk/errcheck
+	go install github.com/kisielk/errcheck@latest
 	errcheck ./test/...
 
 drone:
@@ -163,7 +163,7 @@ drone:
 	(cd $(GOPATH)/src/github.com/gogo/protobuf && make buildserverall)
 
 testall:
-	go get -u github.com/golang/protobuf/proto
+	go install github.com/golang/protobuf/proto@latest
 	make -C protoc-gen-gogo test
 	make -C vanity/test test
 	make -C test/registration test
@@ -172,7 +172,7 @@ testall:
 	make tests
 
 bench:
-	go get golang.org/x/tools/cmd/benchcmp
+	go install golang.org/x/tools/cmd/benchcmp@latest
 	(cd test/mixbench && go build .)
 	./test/mixbench/mixbench -benchlist "${BENCHLIST}"
 
