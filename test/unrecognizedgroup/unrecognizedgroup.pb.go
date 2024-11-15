@@ -17,6 +17,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
+	slices "slices"
 	strings "strings"
 )
 
@@ -1594,8 +1595,12 @@ func (m *NewNoGroup) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 8
-				if elementCount != 0 && len(m.Field3) == 0 {
-					m.Field3 = make([]float64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field3 == nil {
+						m.Field3 = make([]float64, 0, elementCount)
+					} else {
+						m.Field3 = slices.Grow(m.Field3, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
