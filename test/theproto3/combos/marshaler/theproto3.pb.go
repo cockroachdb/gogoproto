@@ -3833,20 +3833,29 @@ func (m *Message) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x32
 	}
 	if len(m.Key) > 0 {
-		dAtA6 := make([]byte, len(m.Key)*10)
-		var j5 int
-		for _, num := range m.Key {
-			for num >= 1<<7 {
-				dAtA6[j5] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
+		l := 0
+		for _, e := range m.Key {
+			l += sovTheproto3(uint64(e))
+		}
+		i -= l
+		if l == len(m.Key) {
+			dest := dAtA[i : i+len(m.Key)]
+			for k, num := range m.Key {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j5 := i
+			for _, num := range m.Key {
+				for num >= 1<<7 {
+					dAtA[j5] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j5++
+				}
+				dAtA[j5] = uint8(num)
 				j5++
 			}
-			dAtA6[j5] = uint8(num)
-			j5++
 		}
-		i -= j5
-		copy(dAtA[i:], dAtA6[:j5])
-		i = encodeVarintTheproto3(dAtA, i, uint64(j5))
+		i = encodeVarintTheproto3(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x2a
 	}

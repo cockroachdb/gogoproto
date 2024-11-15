@@ -22725,84 +22725,120 @@ func (m *NidRepPackedNative) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x3a
 	}
 	if len(m.Field6) > 0 {
-		dAtA16 := make([]byte, len(m.Field6)*10)
-		var j15 int
-		for _, num := range m.Field6 {
-			for num >= 1<<7 {
-				dAtA16[j15] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
+		l := 0
+		for _, e := range m.Field6 {
+			l += sovThetest(uint64(e))
+		}
+		i -= l
+		if l == len(m.Field6) {
+			dest := dAtA[i : i+len(m.Field6)]
+			for k, num := range m.Field6 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j15 := i
+			for _, num := range m.Field6 {
+				for num >= 1<<7 {
+					dAtA[j15] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j15++
+				}
+				dAtA[j15] = uint8(num)
 				j15++
 			}
-			dAtA16[j15] = uint8(num)
-			j15++
 		}
-		i -= j15
-		copy(dAtA[i:], dAtA16[:j15])
-		i = encodeVarintThetest(dAtA, i, uint64(j15))
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x32
 	}
 	if len(m.Field5) > 0 {
-		dAtA18 := make([]byte, len(m.Field5)*10)
-		var j17 int
-		for _, num := range m.Field5 {
-			for num >= 1<<7 {
-				dAtA18[j17] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j17++
-			}
-			dAtA18[j17] = uint8(num)
-			j17++
+		l := 0
+		for _, e := range m.Field5 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j17
-		copy(dAtA[i:], dAtA18[:j17])
-		i = encodeVarintThetest(dAtA, i, uint64(j17))
+		i -= l
+		if l == len(m.Field5) {
+			dest := dAtA[i : i+len(m.Field5)]
+			for k, num := range m.Field5 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j16 := i
+			for _, num := range m.Field5 {
+				for num >= 1<<7 {
+					dAtA[j16] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j16++
+				}
+				dAtA[j16] = uint8(num)
+				j16++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x2a
 	}
 	if len(m.Field4) > 0 {
-		dAtA20 := make([]byte, len(m.Field4)*10)
-		var j19 int
-		for _, num1 := range m.Field4 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA20[j19] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j19++
-			}
-			dAtA20[j19] = uint8(num)
-			j19++
+		l := 0
+		for _, e := range m.Field4 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j19
-		copy(dAtA[i:], dAtA20[:j19])
-		i = encodeVarintThetest(dAtA, i, uint64(j19))
+		i -= l
+		if l == len(m.Field4) {
+			dest := dAtA[i : i+len(m.Field4)]
+			for k, num := range m.Field4 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j17 := i
+			for _, num1 := range m.Field4 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j17] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j17++
+				}
+				dAtA[j17] = uint8(num)
+				j17++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x22
 	}
 	if len(m.Field3) > 0 {
-		dAtA22 := make([]byte, len(m.Field3)*10)
-		var j21 int
-		for _, num1 := range m.Field3 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA22[j21] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j21++
-			}
-			dAtA22[j21] = uint8(num)
-			j21++
+		l := 0
+		for _, e := range m.Field3 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j21
-		copy(dAtA[i:], dAtA22[:j21])
-		i = encodeVarintThetest(dAtA, i, uint64(j21))
+		i -= l
+		if l == len(m.Field3) {
+			dest := dAtA[i : i+len(m.Field3)]
+			for k, num := range m.Field3 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j18 := i
+			for _, num1 := range m.Field3 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j18] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j18++
+				}
+				dAtA[j18] = uint8(num)
+				j18++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x1a
 	}
 	if len(m.Field2) > 0 {
 		for iNdEx := len(m.Field2) - 1; iNdEx >= 0; iNdEx-- {
-			f23 := math.Float32bits(float32(m.Field2[iNdEx]))
+			f19 := math.Float32bits(float32(m.Field2[iNdEx]))
 			i -= 4
-			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f23))
+			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f19))
 		}
 		i = encodeVarintThetest(dAtA, i, uint64(len(m.Field2)*4))
 		i--
@@ -22810,9 +22846,9 @@ func (m *NidRepPackedNative) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field1) > 0 {
 		for iNdEx := len(m.Field1) - 1; iNdEx >= 0; iNdEx-- {
-			f24 := math.Float64bits(float64(m.Field1[iNdEx]))
+			f20 := math.Float64bits(float64(m.Field1[iNdEx]))
 			i -= 8
-			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f24))
+			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f20))
 		}
 		i = encodeVarintThetest(dAtA, i, uint64(len(m.Field1)*8))
 		i--
@@ -22895,122 +22931,158 @@ func (m *NinRepPackedNative) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x4a
 	}
 	if len(m.Field8) > 0 {
-		var j25 int
-		dAtA27 := make([]byte, len(m.Field8)*10)
+		var j21 int
+		dAtA23 := make([]byte, len(m.Field8)*10)
 		for _, num := range m.Field8 {
-			x26 := (uint64(num) << 1) ^ uint64((num >> 63))
-			for x26 >= 1<<7 {
-				dAtA27[j25] = uint8(uint64(x26)&0x7f | 0x80)
-				j25++
-				x26 >>= 7
+			x22 := (uint64(num) << 1) ^ uint64((num >> 63))
+			for x22 >= 1<<7 {
+				dAtA23[j21] = uint8(uint64(x22)&0x7f | 0x80)
+				j21++
+				x22 >>= 7
 			}
-			dAtA27[j25] = uint8(x26)
-			j25++
+			dAtA23[j21] = uint8(x22)
+			j21++
 		}
-		i -= j25
-		copy(dAtA[i:], dAtA27[:j25])
-		i = encodeVarintThetest(dAtA, i, uint64(j25))
+		i -= j21
+		copy(dAtA[i:], dAtA23[:j21])
+		i = encodeVarintThetest(dAtA, i, uint64(j21))
 		i--
 		dAtA[i] = 0x42
 	}
 	if len(m.Field7) > 0 {
-		dAtA28 := make([]byte, len(m.Field7)*5)
-		var j29 int
+		dAtA24 := make([]byte, len(m.Field7)*5)
+		var j25 int
 		for _, num := range m.Field7 {
-			x30 := (uint32(num) << 1) ^ uint32((num >> 31))
-			for x30 >= 1<<7 {
-				dAtA28[j29] = uint8(uint64(x30)&0x7f | 0x80)
-				j29++
-				x30 >>= 7
+			x26 := (uint32(num) << 1) ^ uint32((num >> 31))
+			for x26 >= 1<<7 {
+				dAtA24[j25] = uint8(uint64(x26)&0x7f | 0x80)
+				j25++
+				x26 >>= 7
 			}
-			dAtA28[j29] = uint8(x30)
-			j29++
+			dAtA24[j25] = uint8(x26)
+			j25++
 		}
-		i -= j29
-		copy(dAtA[i:], dAtA28[:j29])
-		i = encodeVarintThetest(dAtA, i, uint64(j29))
+		i -= j25
+		copy(dAtA[i:], dAtA24[:j25])
+		i = encodeVarintThetest(dAtA, i, uint64(j25))
 		i--
 		dAtA[i] = 0x3a
 	}
 	if len(m.Field6) > 0 {
-		dAtA32 := make([]byte, len(m.Field6)*10)
-		var j31 int
-		for _, num := range m.Field6 {
-			for num >= 1<<7 {
-				dAtA32[j31] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j31++
-			}
-			dAtA32[j31] = uint8(num)
-			j31++
+		l := 0
+		for _, e := range m.Field6 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j31
-		copy(dAtA[i:], dAtA32[:j31])
-		i = encodeVarintThetest(dAtA, i, uint64(j31))
+		i -= l
+		if l == len(m.Field6) {
+			dest := dAtA[i : i+len(m.Field6)]
+			for k, num := range m.Field6 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j27 := i
+			for _, num := range m.Field6 {
+				for num >= 1<<7 {
+					dAtA[j27] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j27++
+				}
+				dAtA[j27] = uint8(num)
+				j27++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x32
 	}
 	if len(m.Field5) > 0 {
-		dAtA34 := make([]byte, len(m.Field5)*10)
-		var j33 int
-		for _, num := range m.Field5 {
-			for num >= 1<<7 {
-				dAtA34[j33] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j33++
-			}
-			dAtA34[j33] = uint8(num)
-			j33++
+		l := 0
+		for _, e := range m.Field5 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j33
-		copy(dAtA[i:], dAtA34[:j33])
-		i = encodeVarintThetest(dAtA, i, uint64(j33))
+		i -= l
+		if l == len(m.Field5) {
+			dest := dAtA[i : i+len(m.Field5)]
+			for k, num := range m.Field5 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j28 := i
+			for _, num := range m.Field5 {
+				for num >= 1<<7 {
+					dAtA[j28] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j28++
+				}
+				dAtA[j28] = uint8(num)
+				j28++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x2a
 	}
 	if len(m.Field4) > 0 {
-		dAtA36 := make([]byte, len(m.Field4)*10)
-		var j35 int
-		for _, num1 := range m.Field4 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA36[j35] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j35++
-			}
-			dAtA36[j35] = uint8(num)
-			j35++
+		l := 0
+		for _, e := range m.Field4 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j35
-		copy(dAtA[i:], dAtA36[:j35])
-		i = encodeVarintThetest(dAtA, i, uint64(j35))
+		i -= l
+		if l == len(m.Field4) {
+			dest := dAtA[i : i+len(m.Field4)]
+			for k, num := range m.Field4 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j29 := i
+			for _, num1 := range m.Field4 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j29] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j29++
+				}
+				dAtA[j29] = uint8(num)
+				j29++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x22
 	}
 	if len(m.Field3) > 0 {
-		dAtA38 := make([]byte, len(m.Field3)*10)
-		var j37 int
-		for _, num1 := range m.Field3 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA38[j37] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j37++
-			}
-			dAtA38[j37] = uint8(num)
-			j37++
+		l := 0
+		for _, e := range m.Field3 {
+			l += sovThetest(uint64(e))
 		}
-		i -= j37
-		copy(dAtA[i:], dAtA38[:j37])
-		i = encodeVarintThetest(dAtA, i, uint64(j37))
+		i -= l
+		if l == len(m.Field3) {
+			dest := dAtA[i : i+len(m.Field3)]
+			for k, num := range m.Field3 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j30 := i
+			for _, num1 := range m.Field3 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j30] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j30++
+				}
+				dAtA[j30] = uint8(num)
+				j30++
+			}
+		}
+		i = encodeVarintThetest(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x1a
 	}
 	if len(m.Field2) > 0 {
 		for iNdEx := len(m.Field2) - 1; iNdEx >= 0; iNdEx-- {
-			f39 := math.Float32bits(float32(m.Field2[iNdEx]))
+			f31 := math.Float32bits(float32(m.Field2[iNdEx]))
 			i -= 4
-			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f39))
+			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f31))
 		}
 		i = encodeVarintThetest(dAtA, i, uint64(len(m.Field2)*4))
 		i--
@@ -23018,9 +23090,9 @@ func (m *NinRepPackedNative) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field1) > 0 {
 		for iNdEx := len(m.Field1) - 1; iNdEx >= 0; iNdEx-- {
-			f40 := math.Float64bits(float64(m.Field1[iNdEx]))
+			f32 := math.Float64bits(float64(m.Field1[iNdEx]))
 			i -= 8
-			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f40))
+			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f32))
 		}
 		i = encodeVarintThetest(dAtA, i, uint64(len(m.Field1)*8))
 		i--
@@ -23299,8 +23371,8 @@ func (m *NidRepStruct) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field7) > 0 {
 		for iNdEx := len(m.Field7) - 1; iNdEx >= 0; iNdEx-- {
-			x47 := (uint32(m.Field7[iNdEx]) << 1) ^ uint32((m.Field7[iNdEx] >> 31))
-			i = encodeVarintThetest(dAtA, i, uint64(x47))
+			x39 := (uint32(m.Field7[iNdEx]) << 1) ^ uint32((m.Field7[iNdEx] >> 31))
+			i = encodeVarintThetest(dAtA, i, uint64(x39))
 			i--
 			dAtA[i] = 0x38
 		}
@@ -23342,18 +23414,18 @@ func (m *NidRepStruct) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field2) > 0 {
 		for iNdEx := len(m.Field2) - 1; iNdEx >= 0; iNdEx-- {
-			f48 := math.Float32bits(float32(m.Field2[iNdEx]))
+			f40 := math.Float32bits(float32(m.Field2[iNdEx]))
 			i -= 4
-			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f48))
+			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f40))
 			i--
 			dAtA[i] = 0x15
 		}
 	}
 	if len(m.Field1) > 0 {
 		for iNdEx := len(m.Field1) - 1; iNdEx >= 0; iNdEx-- {
-			f49 := math.Float64bits(float64(m.Field1[iNdEx]))
+			f41 := math.Float64bits(float64(m.Field1[iNdEx]))
 			i -= 8
-			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f49))
+			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f41))
 			i--
 			dAtA[i] = 0x9
 		}
@@ -23431,8 +23503,8 @@ func (m *NinRepStruct) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field7) > 0 {
 		for iNdEx := len(m.Field7) - 1; iNdEx >= 0; iNdEx-- {
-			x50 := (uint32(m.Field7[iNdEx]) << 1) ^ uint32((m.Field7[iNdEx] >> 31))
-			i = encodeVarintThetest(dAtA, i, uint64(x50))
+			x42 := (uint32(m.Field7[iNdEx]) << 1) ^ uint32((m.Field7[iNdEx] >> 31))
+			i = encodeVarintThetest(dAtA, i, uint64(x42))
 			i--
 			dAtA[i] = 0x38
 		}
@@ -23474,18 +23546,18 @@ func (m *NinRepStruct) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field2) > 0 {
 		for iNdEx := len(m.Field2) - 1; iNdEx >= 0; iNdEx-- {
-			f51 := math.Float32bits(float32(m.Field2[iNdEx]))
+			f43 := math.Float32bits(float32(m.Field2[iNdEx]))
 			i -= 4
-			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f51))
+			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f43))
 			i--
 			dAtA[i] = 0x15
 		}
 	}
 	if len(m.Field1) > 0 {
 		for iNdEx := len(m.Field1) - 1; iNdEx >= 0; iNdEx-- {
-			f52 := math.Float64bits(float64(m.Field1[iNdEx]))
+			f44 := math.Float64bits(float64(m.Field1[iNdEx]))
 			i -= 8
-			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f52))
+			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f44))
 			i--
 			dAtA[i] = 0x9
 		}
@@ -25752,16 +25824,16 @@ func (m *CustomNameNinRepNative) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	}
 	if len(m.FieldH) > 0 {
 		for iNdEx := len(m.FieldH) - 1; iNdEx >= 0; iNdEx-- {
-			x87 := (uint64(m.FieldH[iNdEx]) << 1) ^ uint64((m.FieldH[iNdEx] >> 63))
-			i = encodeVarintThetest(dAtA, i, uint64(x87))
+			x79 := (uint64(m.FieldH[iNdEx]) << 1) ^ uint64((m.FieldH[iNdEx] >> 63))
+			i = encodeVarintThetest(dAtA, i, uint64(x79))
 			i--
 			dAtA[i] = 0x40
 		}
 	}
 	if len(m.FieldG) > 0 {
 		for iNdEx := len(m.FieldG) - 1; iNdEx >= 0; iNdEx-- {
-			x88 := (uint32(m.FieldG[iNdEx]) << 1) ^ uint32((m.FieldG[iNdEx] >> 31))
-			i = encodeVarintThetest(dAtA, i, uint64(x88))
+			x80 := (uint32(m.FieldG[iNdEx]) << 1) ^ uint32((m.FieldG[iNdEx] >> 31))
+			i = encodeVarintThetest(dAtA, i, uint64(x80))
 			i--
 			dAtA[i] = 0x38
 		}
@@ -25796,18 +25868,18 @@ func (m *CustomNameNinRepNative) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	}
 	if len(m.FieldB) > 0 {
 		for iNdEx := len(m.FieldB) - 1; iNdEx >= 0; iNdEx-- {
-			f89 := math.Float32bits(float32(m.FieldB[iNdEx]))
+			f81 := math.Float32bits(float32(m.FieldB[iNdEx]))
 			i -= 4
-			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f89))
+			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f81))
 			i--
 			dAtA[i] = 0x15
 		}
 	}
 	if len(m.FieldA) > 0 {
 		for iNdEx := len(m.FieldA) - 1; iNdEx >= 0; iNdEx-- {
-			f90 := math.Float64bits(float64(m.FieldA[iNdEx]))
+			f82 := math.Float64bits(float64(m.FieldA[iNdEx]))
 			i -= 8
-			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f90))
+			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f82))
 			i--
 			dAtA[i] = 0x9
 		}
