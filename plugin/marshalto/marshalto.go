@@ -434,8 +434,32 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 		descriptor.FieldDescriptorProto_TYPE_ENUM:
 		if packed {
 			jvar := "j" + numGen.Next()
-			p.P(`dAtA`, numGen.Next(), ` := make([]byte, len(m.`, fieldname, `)*10)`)
-			p.P(`var `, jvar, ` int`)
+			// Determine the encoded size. This is preferable to making an extra
+			// allocation.
+			// TODO(radu): this is duplicated work between Size and
+			// MarshalToSizedBuffer, which are both called in most cases. Create a
+			// `Marshaler` type that stores these sizes.
+			p.P(`l := 0`)
+			p.P(`for _, e := range m.`, fieldname, ` {`)
+			p.In()
+			p.P(`l+=sov`, p.localName, `(uint64(e))`)
+			p.Out()
+			p.P(`}`)
+			p.P(`i -= l`)
+			p.P(`if l == len(m.`, fieldname, `) {`)
+			p.In()
+			// Fast path for the case where all values are small.
+			p.P(`dest := dAtA[i:i+len(m.`, fieldname, `)]`)
+			p.P(`for k, num := range m.`, fieldname, ` {`)
+			p.In()
+			p.P(`dest[k] = uint8(num)`)
+			p.Out()
+			p.P(`}`)
+			p.Out()
+			p.P(`} else {`)
+			p.In()
+			p.P(jvar, ` := i`)
+
 			if *field.Type == descriptor.FieldDescriptorProto_TYPE_INT64 ||
 				*field.Type == descriptor.FieldDescriptorProto_TYPE_INT32 {
 				p.P(`for _, num1 := range m.`, fieldname, ` {`)
@@ -447,18 +471,18 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 			}
 			p.P(`for num >= 1<<7 {`)
 			p.In()
-			p.P(`dAtA`, numGen.Current(), `[`, jvar, `] = uint8(uint64(num)&0x7f|0x80)`)
+			p.P(`dAtA`, `[`, jvar, `] = uint8(uint64(num)&0x7f|0x80)`)
 			p.P(`num >>= 7`)
 			p.P(jvar, `++`)
 			p.Out()
 			p.P(`}`)
-			p.P(`dAtA`, numGen.Current(), `[`, jvar, `] = uint8(num)`)
+			p.P(`dAtA`, `[`, jvar, `] = uint8(num)`)
 			p.P(jvar, `++`)
 			p.Out()
 			p.P(`}`)
-			p.P(`i -= `, jvar)
-			p.P(`copy(dAtA[i:], dAtA`, numGen.Current(), `[:`, jvar, `])`)
-			p.callVarint(jvar)
+			p.Out()
+			p.P(`}`)
+			p.callVarint(`uint64(l)`)
 			p.encodeKey(fieldNumber, wireType)
 		} else if repeated {
 			val := p.reverseListRange(`m.`, fieldname)

@@ -837,84 +837,120 @@ func (m *NinRepPackedNative) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		dAtA[i] = 0x3a
 	}
 	if len(m.Field6) > 0 {
-		dAtA8 := make([]byte, len(m.Field6)*10)
-		var j7 int
-		for _, num := range m.Field6 {
-			for num >= 1<<7 {
-				dAtA8[j7] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
+		l := 0
+		for _, e := range m.Field6 {
+			l += sovFuzz(uint64(e))
+		}
+		i -= l
+		if l == len(m.Field6) {
+			dest := dAtA[i : i+len(m.Field6)]
+			for k, num := range m.Field6 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j7 := i
+			for _, num := range m.Field6 {
+				for num >= 1<<7 {
+					dAtA[j7] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j7++
+				}
+				dAtA[j7] = uint8(num)
 				j7++
 			}
-			dAtA8[j7] = uint8(num)
-			j7++
 		}
-		i -= j7
-		copy(dAtA[i:], dAtA8[:j7])
-		i = encodeVarintFuzz(dAtA, i, uint64(j7))
+		i = encodeVarintFuzz(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x32
 	}
 	if len(m.Field5) > 0 {
-		dAtA10 := make([]byte, len(m.Field5)*10)
-		var j9 int
-		for _, num := range m.Field5 {
-			for num >= 1<<7 {
-				dAtA10[j9] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j9++
-			}
-			dAtA10[j9] = uint8(num)
-			j9++
+		l := 0
+		for _, e := range m.Field5 {
+			l += sovFuzz(uint64(e))
 		}
-		i -= j9
-		copy(dAtA[i:], dAtA10[:j9])
-		i = encodeVarintFuzz(dAtA, i, uint64(j9))
+		i -= l
+		if l == len(m.Field5) {
+			dest := dAtA[i : i+len(m.Field5)]
+			for k, num := range m.Field5 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j8 := i
+			for _, num := range m.Field5 {
+				for num >= 1<<7 {
+					dAtA[j8] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j8++
+				}
+				dAtA[j8] = uint8(num)
+				j8++
+			}
+		}
+		i = encodeVarintFuzz(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x2a
 	}
 	if len(m.Field4) > 0 {
-		dAtA12 := make([]byte, len(m.Field4)*10)
-		var j11 int
-		for _, num1 := range m.Field4 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA12[j11] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j11++
-			}
-			dAtA12[j11] = uint8(num)
-			j11++
+		l := 0
+		for _, e := range m.Field4 {
+			l += sovFuzz(uint64(e))
 		}
-		i -= j11
-		copy(dAtA[i:], dAtA12[:j11])
-		i = encodeVarintFuzz(dAtA, i, uint64(j11))
+		i -= l
+		if l == len(m.Field4) {
+			dest := dAtA[i : i+len(m.Field4)]
+			for k, num := range m.Field4 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j9 := i
+			for _, num1 := range m.Field4 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j9] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j9++
+				}
+				dAtA[j9] = uint8(num)
+				j9++
+			}
+		}
+		i = encodeVarintFuzz(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x22
 	}
 	if len(m.Field3) > 0 {
-		dAtA14 := make([]byte, len(m.Field3)*10)
-		var j13 int
-		for _, num1 := range m.Field3 {
-			num := uint64(num1)
-			for num >= 1<<7 {
-				dAtA14[j13] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j13++
-			}
-			dAtA14[j13] = uint8(num)
-			j13++
+		l := 0
+		for _, e := range m.Field3 {
+			l += sovFuzz(uint64(e))
 		}
-		i -= j13
-		copy(dAtA[i:], dAtA14[:j13])
-		i = encodeVarintFuzz(dAtA, i, uint64(j13))
+		i -= l
+		if l == len(m.Field3) {
+			dest := dAtA[i : i+len(m.Field3)]
+			for k, num := range m.Field3 {
+				dest[k] = uint8(num)
+			}
+		} else {
+			j10 := i
+			for _, num1 := range m.Field3 {
+				num := uint64(num1)
+				for num >= 1<<7 {
+					dAtA[j10] = uint8(uint64(num)&0x7f | 0x80)
+					num >>= 7
+					j10++
+				}
+				dAtA[j10] = uint8(num)
+				j10++
+			}
+		}
+		i = encodeVarintFuzz(dAtA, i, uint64(uint64(l)))
 		i--
 		dAtA[i] = 0x1a
 	}
 	if len(m.Field2) > 0 {
 		for iNdEx := len(m.Field2) - 1; iNdEx >= 0; iNdEx-- {
-			f15 := math.Float32bits(float32(m.Field2[iNdEx]))
+			f11 := math.Float32bits(float32(m.Field2[iNdEx]))
 			i -= 4
-			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f15))
+			encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(f11))
 		}
 		i = encodeVarintFuzz(dAtA, i, uint64(len(m.Field2)*4))
 		i--
@@ -922,9 +958,9 @@ func (m *NinRepPackedNative) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if len(m.Field1) > 0 {
 		for iNdEx := len(m.Field1) - 1; iNdEx >= 0; iNdEx-- {
-			f16 := math.Float64bits(float64(m.Field1[iNdEx]))
+			f12 := math.Float64bits(float64(m.Field1[iNdEx]))
 			i -= 8
-			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f16))
+			encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(f12))
 		}
 		i = encodeVarintFuzz(dAtA, i, uint64(len(m.Field1)*8))
 		i--
