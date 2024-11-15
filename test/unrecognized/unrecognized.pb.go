@@ -17,6 +17,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
+	slices "slices"
 	strings "strings"
 )
 
@@ -3695,8 +3696,12 @@ func (m *C) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 4
-				if elementCount != 0 && len(m.Field7) == 0 {
-					m.Field7 = make([]float32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field7 == nil {
+						m.Field7 = make([]float32, 0, elementCount)
+					} else {
+						m.Field7 = slices.Grow(m.Field7, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint32
@@ -3800,8 +3805,12 @@ func (m *U) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 8
-				if elementCount != 0 && len(m.Field2) == 0 {
-					m.Field2 = make([]float64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field2 == nil {
+						m.Field2 = make([]float64, 0, elementCount)
+					} else {
+						m.Field2 = slices.Grow(m.Field2, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
@@ -4236,8 +4245,12 @@ func (m *OldC) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 4
-				if elementCount != 0 && len(m.Field7) == 0 {
-					m.Field7 = make([]float32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field7 == nil {
+						m.Field7 = make([]float32, 0, elementCount)
+					} else {
+						m.Field7 = slices.Grow(m.Field7, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint32
@@ -4374,8 +4387,12 @@ func (m *OldU) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 8
-				if elementCount != 0 && len(m.Field2) == 0 {
-					m.Field2 = make([]float64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field2 == nil {
+						m.Field2 = make([]float64, 0, elementCount)
+					} else {
+						m.Field2 = slices.Grow(m.Field2, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64

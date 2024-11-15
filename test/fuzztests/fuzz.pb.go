@@ -12,6 +12,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
+	slices "slices"
 	strings "strings"
 )
 
@@ -1486,8 +1487,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 8
-				if elementCount != 0 && len(m.Field1) == 0 {
-					m.Field1 = make([]float64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field1 == nil {
+						m.Field1 = make([]float64, 0, elementCount)
+					} else {
+						m.Field1 = slices.Grow(m.Field1, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
@@ -1540,8 +1545,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 4
-				if elementCount != 0 && len(m.Field2) == 0 {
-					m.Field2 = make([]float32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field2 == nil {
+						m.Field2 = make([]float32, 0, elementCount)
+					} else {
+						m.Field2 = slices.Grow(m.Field2, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint32
@@ -1608,8 +1617,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Field3) == 0 {
-					m.Field3 = make([]int32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field3 == nil {
+						m.Field3 = make([]int32, 0, elementCount)
+					} else {
+						m.Field3 = slices.Grow(m.Field3, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int32
@@ -1684,8 +1697,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Field4) == 0 {
-					m.Field4 = make([]int64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field4 == nil {
+						m.Field4 = make([]int64, 0, elementCount)
+					} else {
+						m.Field4 = slices.Grow(m.Field4, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int64
@@ -1760,8 +1777,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Field5) == 0 {
-					m.Field5 = make([]uint32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field5 == nil {
+						m.Field5 = make([]uint32, 0, elementCount)
+					} else {
+						m.Field5 = slices.Grow(m.Field5, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint32
@@ -1836,8 +1857,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Field6) == 0 {
-					m.Field6 = make([]uint64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field6 == nil {
+						m.Field6 = make([]uint64, 0, elementCount)
+					} else {
+						m.Field6 = slices.Grow(m.Field6, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
@@ -1913,8 +1938,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Field7) == 0 {
-					m.Field7 = make([]int32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field7 == nil {
+						m.Field7 = make([]int32, 0, elementCount)
+					} else {
+						m.Field7 = slices.Grow(m.Field7, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int32
@@ -1991,8 +2020,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Field8) == 0 {
-					m.Field8 = make([]int64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field8 == nil {
+						m.Field8 = make([]int64, 0, elementCount)
+					} else {
+						m.Field8 = slices.Grow(m.Field8, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
@@ -2053,8 +2086,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 4
-				if elementCount != 0 && len(m.Field9) == 0 {
-					m.Field9 = make([]uint32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field9 == nil {
+						m.Field9 = make([]uint32, 0, elementCount)
+					} else {
+						m.Field9 = slices.Grow(m.Field9, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint32
@@ -2105,8 +2142,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 4
-				if elementCount != 0 && len(m.Field10) == 0 {
-					m.Field10 = make([]int32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field10 == nil {
+						m.Field10 = make([]int32, 0, elementCount)
+					} else {
+						m.Field10 = slices.Grow(m.Field10, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int32
@@ -2157,8 +2198,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 8
-				if elementCount != 0 && len(m.Field11) == 0 {
-					m.Field11 = make([]uint64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field11 == nil {
+						m.Field11 = make([]uint64, 0, elementCount)
+					} else {
+						m.Field11 = slices.Grow(m.Field11, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v uint64
@@ -2209,8 +2254,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen / 8
-				if elementCount != 0 && len(m.Field12) == 0 {
-					m.Field12 = make([]int64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field12 == nil {
+						m.Field12 = make([]int64, 0, elementCount)
+					} else {
+						m.Field12 = slices.Grow(m.Field12, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int64
@@ -2270,8 +2319,12 @@ func (m *NinRepPackedNative) Unmarshal(dAtA []byte) error {
 				}
 				var elementCount int
 				elementCount = packedLen
-				if elementCount != 0 && len(m.Field13) == 0 {
-					m.Field13 = make([]bool, 0, elementCount)
+				if elementCount != 0 {
+					if m.Field13 == nil {
+						m.Field13 = make([]bool, 0, elementCount)
+					} else {
+						m.Field13 = slices.Grow(m.Field13, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int

@@ -11,6 +11,7 @@ import (
 	io "io"
 	math "math"
 	math_bits "math/bits"
+	slices "slices"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -563,8 +564,12 @@ func (m *Foo) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Num1) == 0 {
-					m.Num1 = make([]int64, 0, elementCount)
+				if elementCount != 0 {
+					if m.Num1 == nil {
+						m.Num1 = make([]int64, 0, elementCount)
+					} else {
+						m.Num1 = slices.Grow(m.Num1, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int64
@@ -639,8 +644,12 @@ func (m *Foo) Unmarshal(dAtA []byte) error {
 					}
 				}
 				elementCount = count
-				if elementCount != 0 && len(m.Num2) == 0 {
-					m.Num2 = make([]int32, 0, elementCount)
+				if elementCount != 0 {
+					if m.Num2 == nil {
+						m.Num2 = make([]int32, 0, elementCount)
+					} else {
+						m.Num2 = slices.Grow(m.Num2, elementCount)
+					}
 				}
 				for iNdEx < postIndex {
 					var v int32
