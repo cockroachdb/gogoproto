@@ -143,8 +143,8 @@ extend google.protobuf.FieldOptions {
 
 
 	// omitempty is used to skip marshaling non-nullable fields which are empty
-	// (unset). The field's type must implement an `.Empty()` method which will be
-	// consulted prior to marshaling.
+	// (unset). The field's type must implement an `IsEmpty() bool` method which
+	// will be consulted prior to marshaling.
 	//
 	// Added by cockroach.
 	optional bool omitempty = 65013;
