@@ -1,5 +1,5 @@
 package omitempty
 
-func (o *OmitEmpty_Inner) Empty() bool {
+func (o *OmitEmpty_Inner) IsEmpty() bool {
 	return o.Foo == 0
 }

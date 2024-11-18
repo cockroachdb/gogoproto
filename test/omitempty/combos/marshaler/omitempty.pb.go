@@ -668,7 +668,7 @@ func (m *OmitEmpty) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	// Field has gogoproto.omitempty set.
-	if !m.InnerOmitEmpty.Empty() {
+	if !m.InnerOmitEmpty.IsEmpty() {
 		{
 			size, err := m.InnerOmitEmpty.MarshalToSizedBuffer(dAtA[:i])
 			if err != nil {
@@ -858,7 +858,7 @@ func (m *OmitEmpty) Size() (n int) {
 	l = m.InnerNotNullable.Size()
 	n += 1 + l + sovOmitempty(uint64(l))
 	// Field has gogoproto.omitempty set.
-	if !m.InnerOmitEmpty.Empty() {
+	if !m.InnerOmitEmpty.IsEmpty() {
 		l = m.InnerOmitEmpty.Size()
 		n += 1 + l + sovOmitempty(uint64(l))
 	}

@@ -357,7 +357,7 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 		p.In()
 	} else if omitEmpty {
 		p.P(`// Field has gogoproto.omitempty set.`)
-		p.P(`if !m.`, fieldname, `.Empty() {`)
+		p.P(`if !m.`, fieldname, `.IsEmpty() {`)
 		p.In()
 	}
 	packed := field.IsPacked() || (proto3 && field.IsPacked3())
@@ -730,7 +730,7 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 				p.In()
 			} else if omitEmpty {
 				p.P(`// Field has gogoproto.omitempty set.`)
-				p.P(`if !`, accessor, `.Empty() {`)
+				p.P(`if !`, accessor, `.IsEmpty() {`)
 				p.In()
 			}
 			p.mapField(numGen, field, m.ValueAliasField, accessor, protoSizer)

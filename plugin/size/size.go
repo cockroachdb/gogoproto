@@ -244,7 +244,7 @@ func (p *size) generateField(proto3 bool, file *generator.FileDescriptor, messag
 		p.In()
 	} else if omitEmpty {
 		p.P(`// Field has gogoproto.omitempty set.`)
-		p.P(`if !m.`, fieldname, `.Empty() {`)
+		p.P(`if !m.`, fieldname, `.IsEmpty() {`)
 		p.In()
 	}
 	packed := field.IsPacked() || (proto3 && field.IsPacked3())
