@@ -504,6 +504,14 @@ func (p *size) generateField(proto3 bool, file *generator.FileDescriptor, messag
 			p.P(`n+=`, strconv.Itoa(key), `+l+sov`, p.localName, `(uint64(l))`)
 			p.Out()
 			p.P(`}`)
+		} else if gogoproto.IsStdTypeAndNeedsZeroCheck(proto3, field) {
+			p.P(`if m.`, fieldname, ` != 0 {`)
+			p.In()
+			stdSizeCall, _ := p.std(field, "m."+fieldname)
+			p.P(`l=`, stdSizeCall)
+			p.P(`n+=`, strconv.Itoa(key), `+l+sov`, p.localName, `(uint64(l))`)
+			p.Out()
+			p.P(`}`)
 		} else {
 			stdSizeCall, stdOk := p.std(field, "m."+fieldname)
 			if stdOk {

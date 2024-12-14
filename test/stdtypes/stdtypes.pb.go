@@ -3523,8 +3523,10 @@ func (m *StdTypes) Size() (n int) {
 	}
 	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.Timestamp)
 	n += 1 + l + sovStdtypes(uint64(l))
-	l = github_com_gogo_protobuf_types.SizeOfStdDuration(m.Duration)
-	n += 1 + l + sovStdtypes(uint64(l))
+	if m.Duration != 0 {
+		l = github_com_gogo_protobuf_types.SizeOfStdDuration(m.Duration)
+		n += 1 + l + sovStdtypes(uint64(l))
+	}
 	if m.NullableDouble != nil {
 		l = github_com_gogo_protobuf_types.SizeOfStdDouble(*m.NullableDouble)
 		n += 1 + l + sovStdtypes(uint64(l))
