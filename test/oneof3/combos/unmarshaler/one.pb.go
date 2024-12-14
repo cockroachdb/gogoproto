@@ -3511,11 +3511,15 @@ func (m *SampleOneOf) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &Subby{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value SampleOneOf_SubMessage
+				field Subby
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.TestOneof = &SampleOneOf_SubMessage{v}
+			alloc.value.SubMessage = &alloc.field
+			m.TestOneof = &alloc.value
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

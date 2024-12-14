@@ -695,6 +695,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := time.Time{}`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdTimeUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdDuration(field) {
 				if nullable {
 					p.P(`v := new(time.Duration)`)
@@ -703,6 +708,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := time.Duration(0)`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdDurationUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdDouble(field) {
 				if nullable {
 					p.P(`v := new(float64)`)
@@ -711,6 +721,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := 0`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdDoubleUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdFloat(field) {
 				if nullable {
 					p.P(`v := new(float32)`)
@@ -719,6 +734,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := 0`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdFloatUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdInt64(field) {
 				if nullable {
 					p.P(`v := new(int64)`)
@@ -727,6 +747,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := 0`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdInt64Unmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdUInt64(field) {
 				if nullable {
 					p.P(`v := new(uint64)`)
@@ -735,6 +760,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := 0`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdUInt64Unmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdInt32(field) {
 				if nullable {
 					p.P(`v := new(int32)`)
@@ -743,6 +773,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := 0`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdInt32Unmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdUInt32(field) {
 				if nullable {
 					p.P(`v := new(uint32)`)
@@ -751,6 +786,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := 0`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdUInt32Unmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdBool(field) {
 				if nullable {
 					p.P(`v := new(bool)`)
@@ -759,6 +799,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := false`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdBoolUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdString(field) {
 				if nullable {
 					p.P(`v := new(string)`)
@@ -767,6 +812,11 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`v := ""`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdStringUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else if gogoproto.IsStdBytes(field) {
 				if nullable {
 					p.P(`v := new([]byte)`)
@@ -775,15 +825,26 @@ func (p *unmarshal) field(file *generator.FileDescriptor, msg *generator.Descrip
 					p.P(`var v []byte`)
 					p.P(`if err := `, p.typesPkg.Use(), `.StdBytesUnmarshal(&v, `, buf, `); err != nil {`)
 				}
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 			} else {
-				p.P(`v := &`, msgname, `{}`)
-				p.P(`if err := v.Unmarshal(`, buf, `); err != nil {`)
+				p.P(`alloc := new(struct {`)
+				p.In()
+				p.P(`value `, p.OneOfTypeName(msg, field))
+				p.P(`field `, msgname)
+				p.Out()
+				p.P(`})`)
+				p.P(`if err := alloc.field.Unmarshal(`, buf, `); err != nil {`)
+				p.In()
+				p.P(`return err`)
+				p.Out()
+				p.P(`}`)
+				p.P(`alloc.value.`, p.GetOneOfFieldName(msg, field), ` = &alloc.field`)
+				p.P(`m.`, fieldname, ` = &alloc.value`)
 			}
-			p.In()
-			p.P(`return err`)
-			p.Out()
-			p.P(`}`)
-			p.P(`m.`, fieldname, ` = &`, p.OneOfTypeName(msg, field), `{v}`)
 		} else if p.IsMap(field) {
 			m := p.GoMapType(nil, field)
 
