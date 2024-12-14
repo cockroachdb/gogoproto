@@ -17548,11 +17548,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.Timestamp{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_Timestamp
+				field types.Timestamp
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_Timestamp{v}
+			alloc.value.Timestamp = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -17583,11 +17587,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.Duration{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_Duration
+				field types.Duration
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_Duration{v}
+			alloc.value.Duration = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
@@ -17618,11 +17626,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.DoubleValue{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepDouble
+				field types.DoubleValue
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepDouble{v}
+			alloc.value.RepDouble = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 4:
 			if wireType != 2 {
@@ -17653,11 +17665,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.FloatValue{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepFloat
+				field types.FloatValue
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepFloat{v}
+			alloc.value.RepFloat = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 5:
 			if wireType != 2 {
@@ -17688,11 +17704,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.Int64Value{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepInt64
+				field types.Int64Value
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepInt64{v}
+			alloc.value.RepInt64 = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 6:
 			if wireType != 2 {
@@ -17723,11 +17743,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.UInt64Value{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepUInt64
+				field types.UInt64Value
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepUInt64{v}
+			alloc.value.RepUInt64 = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 7:
 			if wireType != 2 {
@@ -17758,11 +17782,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.Int32Value{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepInt32
+				field types.Int32Value
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepInt32{v}
+			alloc.value.RepInt32 = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 8:
 			if wireType != 2 {
@@ -17793,11 +17821,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.UInt32Value{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepUInt32
+				field types.UInt32Value
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepUInt32{v}
+			alloc.value.RepUInt32 = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 9:
 			if wireType != 2 {
@@ -17828,11 +17860,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.BoolValue{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepBool
+				field types.BoolValue
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepBool{v}
+			alloc.value.RepBool = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 10:
 			if wireType != 2 {
@@ -17863,11 +17899,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.StringValue{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepString
+				field types.StringValue
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepString{v}
+			alloc.value.RepString = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		case 11:
 			if wireType != 2 {
@@ -17898,11 +17938,15 @@ func (m *OneofProtoTypes) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &types.BytesValue{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value OneofProtoTypes_RepBytes
+				field types.BytesValue
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.OneOfProtoTimes = &OneofProtoTypes_RepBytes{v}
+			alloc.value.RepBytes = &alloc.field
+			m.OneOfProtoTimes = &alloc.value
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

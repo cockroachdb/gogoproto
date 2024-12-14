@@ -5501,11 +5501,15 @@ func (m *AllTypesOneOf) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &Subby{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value AllTypesOneOf_SubMessage
+				field Subby
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.TestOneof = &AllTypesOneOf_SubMessage{v}
+			alloc.value.SubMessage = &alloc.field
+			m.TestOneof = &alloc.value
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -5694,11 +5698,15 @@ func (m *TwoOneofs) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &Subby{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value TwoOneofs_SubMessage2
+				field Subby
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.Two = &TwoOneofs_SubMessage2{v}
+			alloc.value.SubMessage2 = &alloc.field
+			m.Two = &alloc.value
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

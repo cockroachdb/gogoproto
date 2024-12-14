@@ -2037,11 +2037,15 @@ func (m *Value) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &Struct{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value Value_StructValue
+				field Struct
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.Kind = &Value_StructValue{v}
+			alloc.value.StructValue = &alloc.field
+			m.Kind = &alloc.value
 			iNdEx = postIndex
 		case 6:
 			if wireType != 2 {
@@ -2072,11 +2076,15 @@ func (m *Value) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &ListValue{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value Value_ListValue
+				field ListValue
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.Kind = &Value_ListValue{v}
+			alloc.value.ListValue = &alloc.field
+			m.Kind = &alloc.value
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

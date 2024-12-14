@@ -357,11 +357,15 @@ func (m *Foo) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			v := &Foo_Bar{}
-			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			alloc := new(struct {
+				value Foo_Bar_
+				field Foo_Bar
+			})
+			if err := alloc.field.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
-			m.Details = &Foo_Bar_{v}
+			alloc.value.Bar = &alloc.field
+			m.Details = &alloc.value
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
