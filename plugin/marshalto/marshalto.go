@@ -764,6 +764,14 @@ func (p *marshalto) generateField(proto3 bool, numGen NumGen, file *generator.Fi
 			p.encodeKey(fieldNumber, wireType)
 			p.Out()
 			p.P(`}`)
+		} else if gogoproto.IsStdTypeAndNeedsZeroCheck(proto3, field) {
+			sizeOfVarName := `m.` + fieldname
+			p.P(`if `, sizeOfVarName, ` != 0 {`)
+			p.In()
+			p.marshalAllSizeOf(field, sizeOfVarName, numGen.Next())
+			p.encodeKey(fieldNumber, wireType)
+			p.Out()
+			p.P(`}`)
 		} else {
 			sizeOfVarName := `m.` + fieldname
 			if gogoproto.IsNullable(field) {

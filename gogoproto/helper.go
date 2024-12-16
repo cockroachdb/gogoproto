@@ -96,6 +96,10 @@ func IsStdType(field *google_protobuf.FieldDescriptorProto) bool {
 		IsStdString(field) || IsStdBytes(field))
 }
 
+func IsStdTypeAndNeedsZeroCheck(proto3 bool, field *google_protobuf.FieldDescriptorProto) bool {
+	return proto3 && !IsNullable(field) && IsStdDuration(field)
+}
+
 func IsWktPtr(field *google_protobuf.FieldDescriptorProto) bool {
 	return proto.GetBoolExtension(field.Options, E_Wktpointer, false)
 }

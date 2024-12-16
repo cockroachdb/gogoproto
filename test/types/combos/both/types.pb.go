@@ -6894,14 +6894,16 @@ func (m *StdTypes) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i = encodeVarintTypes(dAtA, i, uint64(n43))
 	i--
 	dAtA[i] = 0x72
-	n44, err44 := github_com_gogo_protobuf_types.StdDurationMarshalTo(m.Duration, dAtA[i-github_com_gogo_protobuf_types.SizeOfStdDuration(m.Duration):])
-	if err44 != nil {
-		return 0, err44
+	if m.Duration != 0 {
+		n44, err44 := github_com_gogo_protobuf_types.StdDurationMarshalTo(m.Duration, dAtA[i-github_com_gogo_protobuf_types.SizeOfStdDuration(m.Duration):])
+		if err44 != nil {
+			return 0, err44
+		}
+		i -= n44
+		i = encodeVarintTypes(dAtA, i, uint64(n44))
+		i--
+		dAtA[i] = 0x6a
 	}
-	i -= n44
-	i = encodeVarintTypes(dAtA, i, uint64(n44))
-	i--
-	dAtA[i] = 0x6a
 	n45, err45 := github_com_gogo_protobuf_types.StdTimeMarshalTo(m.Timestamp, dAtA[i-github_com_gogo_protobuf_types.SizeOfStdTime(m.Timestamp):])
 	if err45 != nil {
 		return 0, err45
@@ -10529,8 +10531,10 @@ func (m *StdTypes) Size() (n int) {
 	}
 	l = github_com_gogo_protobuf_types.SizeOfStdTime(m.Timestamp)
 	n += 1 + l + sovTypes(uint64(l))
-	l = github_com_gogo_protobuf_types.SizeOfStdDuration(m.Duration)
-	n += 1 + l + sovTypes(uint64(l))
+	if m.Duration != 0 {
+		l = github_com_gogo_protobuf_types.SizeOfStdDuration(m.Duration)
+		n += 1 + l + sovTypes(uint64(l))
+	}
 	l = github_com_gogo_protobuf_types.SizeOfStdDouble(m.NonnullDouble)
 	n += 1 + l + sovTypes(uint64(l))
 	l = github_com_gogo_protobuf_types.SizeOfStdFloat(m.NonnullFloat)
